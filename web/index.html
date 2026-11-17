@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en" data-theme="dark" class="desk">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>WebyPDF</title>
+  <meta name="color-scheme" content="dark light">
+  <link rel="icon" href="icons/icon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/desktop.css">
+  <link rel="stylesheet" href="css/pro.css">
+  <script src="js/theme-init.js"></script>
+</head>
+<body>
+  <div class="bg" aria-hidden="true"><i class="blob b1"></i><i class="blob b2"></i><i class="blob b3"></i><i class="blob b4"></i></div>
+
+  <!-- custom title bar (native Windows buttons are overlaid on the right) -->
+  <div class="titlebar" id="titlebar">
+    <img src="icons/icon.svg" alt="" width="18" height="18">
+    <span class="tb-name">WebyPDF</span>
+    <span class="tb-sep" id="tbSep" hidden>/</span>
+    <span class="tb-page" id="tbPage"></span>
+  </div>
+
+  <div class="shell">
+    <aside class="sidebar glass" id="sidebar" aria-label="Tools">
+      <a class="brand" href="#/" aria-label="WebyPDF home">
+        <img src="icons/icon.svg" alt="" width="38" height="38">
+        <span>Weby<b>PDF</b></span>
+      </a>
+      <label class="sidesearch">
+        <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+        <input id="sideSearch" type="search" placeholder="Search tools" autocomplete="off" aria-label="Search tools">
+        <kbd>Ctrl K</kbd>
+      </label>
+      <nav class="sidenav" id="sidenav"><i class="nav-ind" id="navInd"></i></nav>
+      <div class="sidefoot">
+        <div class="privacy"><span class="dot"></span><div><b>Works offline</b><span>Files never leave this PC</span></div></div>
+        <button id="themeBtn" class="btn icon" type="button" aria-label="Switch theme"></button>
+      </div>
+    </aside>
+
+    <main id="app" class="main" aria-live="polite"></main>
+  </div>
+
+  <footer class="statusbar" id="statusbar"><span class="ok" id="sbState">Ready</span><span id="sbTool"></span><span class="sp"></span><span>Offline · files never leave this PC</span><span>WebyPDF 2.3</span></footer>
+
+  <div id="proc" class="proc" hidden aria-live="assertive"></div>
+  <div id="toasts" aria-live="polite"></div>
+
+  <script src="vendor/pdf-lib.min.js" defer></script>
+  <script src="vendor/jszip.min.js" defer></script>
+  <script type="module" src="js/app.js"></script>
+</body>
+</html>

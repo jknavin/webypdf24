@@ -1,0 +1,151 @@
+/* WebyPDF Desktop – professional Windows (Fluent / Office style) skin.
+   Loaded last. Flat solid surfaces, one blue accent, compact controls, status bar. Motion stays, but quiet. */
+html.desk {
+  --font: "Segoe UI Variable Text", "Segoe UI", system-ui, -apple-system, Roboto, Arial, sans-serif;
+  --radius: 8px; --radius-sm: 4px;
+  --accent: #0f6cbd; --accent-h: #115ea3; --accent-t: rgba(15, 108, 189, .1); --accent-fg: #fff;
+  --bg: #f3f3f3; --surface: #fff; --surface-2: #f9f9f9; --text: #1b1b1b; --muted: #5d5d5d;
+  --glass: #fff; --glass-hi: #f5f5f5; --field: #fff; --stroke: #e0e0e0; --shine: transparent;
+  --shadow: 0 1px 2px rgba(0, 0, 0, .08), 0 2px 8px rgba(0, 0, 0, .06);
+  --a1: var(--accent); --a2: var(--accent); --a3: var(--accent); --a4: var(--accent);
+  --grad: var(--accent); --ok: #107c10; --err: #c42b1c; --warn: #9d5d00;
+  --hover: rgba(0, 0, 0, .05); --sb: 28px;
+}
+html.desk[data-theme="dark"] {
+  --accent: #4cc2ff; --accent-h: #6bcfff; --accent-t: rgba(76, 194, 255, .14); --accent-fg: #003a5c;
+  --bg: #202020; --surface: #2b2b2b; --surface-2: #262626; --text: #fff; --muted: #c8c8c8;
+  --glass: #2b2b2b; --glass-hi: #323232; --field: #333; --stroke: #404040;
+  --shadow: 0 1px 2px rgba(0, 0, 0, .35), 0 2px 10px rgba(0, 0, 0, .3);
+  --hover: rgba(255, 255, 255, .07); --ok: #6ccb5f; --err: #ff99a4; --warn: #fce100;
+}
+html.desk body { background: var(--bg); font-size: 14px; letter-spacing: 0; }
+html.desk .bg, html.desk .hero-art, html.desk .dhero .eyebrow, html.desk .dhero .badges { display: none !important; }
+html.desk :focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; border-radius: 4px; }
+html.desk .glass { background: var(--surface); border: 1px solid var(--stroke); box-shadow: none; backdrop-filter: none; -webkit-backdrop-filter: none; border-radius: var(--radius); }
+html.desk .glass::before, html.desk .glass::after { display: none; }
+html.desk ::-webkit-scrollbar-thumb { background: rgba(128, 128, 128, .45); background-clip: content-box; }
+
+/* layout: sidebar | content, status bar below */
+html.desk .titlebar { background: var(--bg); color: var(--muted); font-weight: 500; }
+html.desk .tb-name { font-weight: 600; }
+html.desk .shell { inset: var(--tb) 0 var(--sb) 0; grid-template-columns: 264px minmax(0, 1fr); gap: 0; padding: 0; }
+html.desk .sidebar { border-radius: 0; border: 0; border-right: 1px solid var(--stroke); background: var(--surface-2); gap: 10px; padding: 10px 10px 8px; animation: none; }
+html.desk .sidebar .brand { font-size: 1.05rem; padding: 2px 6px 4px; gap: 10px; font-weight: 600; }
+html.desk .sidebar .brand img { width: 28px; height: 28px; }
+html.desk .brand b { background: none; -webkit-text-fill-color: currentColor; color: var(--accent); }
+html.desk .sidesearch { border-radius: 4px; background: var(--field); border: 1px solid var(--stroke); border-bottom: 2px solid var(--stroke); padding: 0 8px; }
+html.desk .sidesearch:focus-within { box-shadow: none; border-bottom-color: var(--accent); background: var(--field); }
+html.desk .sidesearch input { padding: 7px 0; font-size: .9rem; }
+html.desk .sidesearch kbd { background: var(--hover); border: 0; border-radius: 3px; font-size: .7rem; color: var(--muted); }
+html.desk .sidenav { gap: 1px; margin: 0 -4px; }
+html.desk .navgroup { margin: 12px 8px 3px; font-size: .72rem; font-weight: 600; letter-spacing: .02em; text-transform: none; color: var(--muted); }
+html.desk .navitem { border-radius: 4px; padding: 5px 8px; gap: 10px; font-size: .9rem; font-weight: 400; color: var(--text); }
+html.desk .navitem:hover { background: var(--hover); transform: none; }
+html.desk .navitem.on { font-weight: 600; }
+html.desk .nav-ind { height: 32px; border-radius: 4px; background: var(--accent-t); box-shadow: none; border: 0; }
+html.desk .nav-ind::before { content: ""; position: absolute; left: 0; top: 8px; bottom: 8px; width: 3px; border-radius: 2px; background: var(--accent); }
+html.desk .nicon { width: 22px; height: 22px; border-radius: 4px; background: none; box-shadow: none; color: var(--g1, var(--accent)); }
+html.desk .navitem:hover .nicon { transform: none; }
+html.desk .nicon svg { width: 17px; height: 17px; }
+html.desk .sidefoot { border-top: 1px solid var(--stroke); padding-top: 8px; }
+html.desk .privacy { font-size: .78rem; }
+html.desk .privacy b { font-weight: 600; }
+html.desk .privacy .dot { background: var(--ok); box-shadow: none; animation: none; }
+html.desk .btn.icon { width: 32px; height: 32px; border-radius: 4px; }
+
+/* content */
+html.desk .main { padding: 18px 32px 24px; background: var(--bg); }
+html.desk .toolpage { max-width: 900px; margin: 0; gap: 14px; padding: 0 0 16px; }
+html.desk .toolhead { gap: 12px; }
+html.desk .toolhead h2 { font-size: 1.5rem; font-weight: 600; letter-spacing: -.01em; }
+html.desk .toolhead p { font-size: .9rem; }
+html.desk .back { width: 32px; height: 32px; border-radius: 4px; }
+
+/* tiles: flat tinted icons instead of gradient blobs */
+html.desk .tile { border-radius: 8px; background: color-mix(in srgb, var(--g1) 13%, var(--surface)); color: var(--g1); box-shadow: none; }
+html.desk[data-theme="dark"] .tile { background: color-mix(in srgb, var(--g1) 22%, var(--surface)); color: color-mix(in srgb, var(--g1) 55%, #fff); }
+html.desk .tile svg { filter: none; }
+html.desk .tile.big { width: 44px; height: 44px; border-radius: 8px; }
+html.desk .ptile.tile { width: 44px; height: 44px; animation: none; }
+
+/* home */
+html.desk .dhero { display: block; padding: 0 0 4px; }
+html.desk .dhero h1 { margin: 0; font-size: 1.7rem; font-weight: 600; letter-spacing: -.01em; line-height: 1.25; }
+html.desk .dhero h1 *, html.desk .dhero h1 span { background: none !important; -webkit-text-fill-color: currentColor !important; color: inherit !important; }
+html.desk .dhero .sub { margin: 4px 0 0; font-size: .95rem; max-width: none; }
+html.desk .quick { grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 10px; margin: 16px 0 4px; }
+html.desk .qcard, html.desk .card.tool { background: var(--surface); border: 1px solid var(--stroke); border-radius: 8px; box-shadow: none; backdrop-filter: none; }
+html.desk .qcard { padding: 12px 14px; gap: 12px; }
+html.desk .qcard:hover, html.desk .card.tool:hover { transform: none; background: var(--glass-hi); border-color: color-mix(in srgb, var(--accent) 45%, var(--stroke)); box-shadow: var(--shadow); }
+html.desk .qcard:hover .tile.big, html.desk .card.tool:hover .tile { transform: none; }
+html.desk .qtxt b { font-weight: 600; }
+html.desk .card.tool::before, html.desk .card.tool::after { display: none; }
+html.desk .card.tool { padding: 14px; gap: 4px; }
+html.desk .card.tool .tile { margin-bottom: 4px; }
+html.desk .tname { font-weight: 600; font-size: .98rem; }
+html.desk .tdesc { font-size: .84rem; }
+html.desk .grid { grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 10px; }
+html.desk .secthead { margin: 22px 0 10px; }
+html.desk .secthead h2 { font-size: 1.1rem; font-weight: 600; }
+html.desk .chip { border-radius: 4px; background: var(--surface); border: 1px solid var(--stroke); padding: 4px 12px; font-weight: 500; box-shadow: none; }
+html.desk .chip:hover { background: var(--hover); }
+html.desk .chip.on, html.desk .chip[aria-pressed="true"], html.desk .chip.active { background: var(--accent); border-color: var(--accent); color: var(--accent-fg); }
+
+/* buttons */
+html.desk .btn { border-radius: 4px; padding: 6px 14px; font-weight: 600; background: var(--surface); border: 1px solid var(--stroke); box-shadow: none; transition: background .12s, border-color .12s; }
+html.desk .btn:hover { transform: none; background: var(--hover); box-shadow: none; }
+html.desk .btn:active { transform: none; opacity: .85; }
+html.desk .btn.primary { background: var(--accent); border-color: var(--accent); color: var(--accent-fg); text-shadow: none; box-shadow: none; filter: none; }
+html.desk .btn.primary:hover { background: var(--accent-h); border-color: var(--accent-h); box-shadow: none; filter: none; }
+html.desk .btn.lg { width: auto; min-width: 190px; padding: 9px 22px; font-size: .95rem; border-radius: 4px; }
+html.desk .btn.primary.lg::before { display: none; }
+html.desk .btn.busy::after { border-color: rgba(255, 255, 255, .45); border-top-color: currentColor; }
+
+/* drop zone */
+html.desk .drop { border: 1px dashed color-mix(in srgb, var(--accent) 55%, var(--stroke)); border-radius: 8px; background: var(--surface); padding: 30px 20px; animation: none; transform: none; }
+html.desk .drop::before { display: none; }
+html.desk .drop:hover, html.desk .drop.over { background: var(--accent-t); border-color: var(--accent); transform: none; box-shadow: none; }
+html.desk .drop .dicon { width: 52px; height: 52px; border-radius: 8px; background: var(--accent-t); color: var(--accent); box-shadow: none; animation: none; }
+html.desk .drop .dicon::after { display: none; }
+html.desk .drop strong { font-size: 1rem; font-weight: 600; }
+html.desk .drop .btn { background: var(--accent); border-color: var(--accent); color: var(--accent-fg); }
+
+/* panels, file rows, options, results */
+html.desk .panel, html.desk .file, html.desk .view, html.desk .success, html.desk .progresswrap, html.desk .optpanel, html.desk .options { border-radius: 8px; }
+html.desk .file { background: var(--surface); border: 1px solid var(--stroke); box-shadow: none; }
+html.desk .file:hover { background: var(--glass-hi); transform: none; }
+html.desk .fthumb { border-radius: 4px; box-shadow: none; }
+html.desk select, html.desk input[type="text"], html.desk input[type="number"], html.desk input[type="search"], html.desk input[type="password"], html.desk textarea {
+  background: var(--field); border: 1px solid var(--stroke); border-bottom-color: color-mix(in srgb, var(--text) 45%, var(--stroke)); border-radius: 4px; color: var(--text); }
+html.desk select:focus, html.desk input:focus, html.desk textarea:focus { outline: 0; border-bottom: 2px solid var(--accent); box-shadow: none; }
+html.desk input[type="checkbox"], html.desk input[type="radio"], html.desk input[type="range"] { accent-color: var(--accent); }
+html.desk .actionbar { bottom: 0; border-radius: 8px; padding: 8px; background: var(--surface); box-shadow: var(--shadow); }
+html.desk .progress { background: var(--hover); border-radius: 2px; height: 4px; }
+html.desk .progress > * { background: var(--accent); border-radius: 2px; }
+
+/* processing dialog */
+html.desk .proc { background: rgba(0, 0, 0, .35); -webkit-backdrop-filter: none; backdrop-filter: none; }
+html.desk .pcard { border-radius: 8px; background: var(--surface); border: 1px solid var(--stroke); box-shadow: 0 8px 32px rgba(0, 0, 0, .28); width: 340px; padding: 22px; }
+html.desk .ring { filter: none; }
+html.desk .rtrack { stroke: var(--hover); stroke-width: 6; }
+html.desk .rbar { stroke: var(--accent); stroke-width: 6; }
+html.desk .orbit b { background: var(--accent); box-shadow: none; width: 8px; height: 8px; margin-left: -4px; top: -4px; }
+html.desk .ringwrap { width: 128px; height: 128px; }
+html.desk .burst { display: none; }
+html.desk .toast { border-radius: 6px; background: var(--surface); border: 1px solid var(--stroke); box-shadow: var(--shadow); backdrop-filter: none; }
+html.desk .success .okicon { background: var(--ok); box-shadow: none; }
+
+/* status bar */
+.statusbar { position: fixed; left: 0; right: 0; bottom: 0; height: var(--sb, 28px); z-index: 60; display: flex; align-items: center; gap: 18px; padding: 0 14px; font-size: .78rem; color: var(--muted); background: var(--surface-2); border-top: 1px solid var(--stroke); user-select: none; }
+.statusbar .sp { flex: 1; }
+.statusbar .ok { display: inline-flex; align-items: center; gap: 6px; }
+.statusbar .ok::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: var(--ok); }
+html:not(.desk) .statusbar { display: none; }
+
+/* fixes */
+html.desk .btn.icon, html.desk .back, html.desk .btn.sm.icon { padding: 0; }
+html.desk .sidesearch input[type="search"] { border: 0; background: none; border-radius: 0; box-shadow: none; padding: 7px 0; }
+html.desk .sidesearch input[type="search"]:focus { border: 0; box-shadow: none; }
+html.desk .sidebar .brand img { box-shadow: none; filter: none; }
+html.desk .nav-ind::before { display: none; }
+html.desk .nav-ind { box-shadow: inset 3px 0 0 var(--accent); }
